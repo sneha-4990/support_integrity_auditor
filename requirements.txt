@@ -11,3 +11,4 @@ tqdm==4.66.0
 imbalanced-learn==0.12.0
 seaborn==0.13.2
 matplotlib==3.8.0
+huggingface_hub==0.22.0
