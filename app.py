@@ -197,7 +197,7 @@ def load_data():
 
     df = pd.read_csv(
         hf_hub_download(
-            repo_id="sneha-4990/support-integrity-auditor",
+            repo_id="doingshit/Support_integrity_auditor",
             filename="tickets_with_predictions.csv",
             repo_type="model"
         )
