@@ -353,7 +353,7 @@ support_integrity_auditor/
 
 ## 🖥️ Streamlit Web App
 
-**Live URL:** supportintegrityauditor.streamlit.app
+**Live URL:** [supportintegrityauditor.streamlit.app](https://supportintegrityauditor.streamlit.app)
 
 The app has 4 tabs:
 
