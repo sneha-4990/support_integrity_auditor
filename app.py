@@ -42,8 +42,8 @@ PRIORITY_MAP_INV = {0: "Low", 1: "Medium", 2: "High", 3: "Critical"}
 @st.cache_resource
 def load_model():
     # Load from HuggingFace — replace with your username
-    tokenizer = AutoTokenizer.from_pretrained("sneha-4990/support-integrity-auditor")
-    model     = AutoModelForSequenceClassification.from_pretrained("sneha-4990/support-integrity-auditor")
+    tokenizer = AutoTokenizer.from_pretrained("doingshit/Support_integrity_auditor")
+    model     = AutoModelForSequenceClassification.from_pretrained("doingshit/Support_integrity_auditor")
     model.eval()
     return tokenizer, model
 
