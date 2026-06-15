@@ -38,12 +38,16 @@ PRIORITY_MAP     = {"Low": 0, "Medium": 1, "High": 2, "Critical": 3}
 PRIORITY_MAP_INV = {0: "Low", 1: "Medium", 2: "High", 3: "Critical"}
 
 # ── Load model (cached so it only loads once) ─────────────────────────────────
+
 @st.cache_resource
 def load_model():
-    tokenizer = AutoTokenizer.from_pretrained("final_model")
-    model     = AutoModelForSequenceClassification.from_pretrained("final_model")
+    # Load from HuggingFace — replace with your username
+    tokenizer = AutoTokenizer.from_pretrained("sneha-4990/support-integrity-auditor")
+    model     = AutoModelForSequenceClassification.from_pretrained("sneha-4990/support-integrity-auditor")
     model.eval()
     return tokenizer, model
+
+
 
 # ── Helper functions ──────────────────────────────────────────────────────────
 def clean_text(text):
@@ -187,9 +191,31 @@ def predict_single(tokenizer, model, text):
 # ── Load pre-computed data ─────────────────────────────────────────────────────
 @st.cache_data
 def load_data():
-    df       = pd.read_csv("data/tickets_with_predictions.csv")
-    dossiers = json.load(open("data/dossiers.json", encoding="utf-8"))
-    summary  = json.load(open("data/summary.json"))
+    # Load from HuggingFace dataset files
+    from huggingface_hub import hf_hub_download
+    import json
+
+    df = pd.read_csv(
+        hf_hub_download(
+            repo_id="sneha-4990/support-integrity-auditor",
+            filename="tickets_with_predictions.csv",
+            repo_type="model"
+        )
+    )
+    dossiers = json.load(open(
+        hf_hub_download(
+            repo_id="sneha-4990/support-integrity-auditor",
+            filename="dossiers.json",
+            repo_type="model"
+        ), encoding="utf-8"
+    ))
+    summary = json.load(open(
+        hf_hub_download(
+            repo_id="sneha-4990/support-integrity-auditor",
+            filename="summary.json",
+            repo_type="model"
+        )
+    ))
     return df, dossiers, summary
 
 # ══════════════════════════════════════════════════════════════════════════════
