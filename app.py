@@ -204,14 +204,14 @@ def load_data():
     )
     dossiers = json.load(open(
         hf_hub_download(
-            repo_id="sneha-4990/support-integrity-auditor",
+            repo_id="doingshit/Support_integrity_auditor",
             filename="dossiers.json",
             repo_type="model"
         ), encoding="utf-8"
     ))
     summary = json.load(open(
         hf_hub_download(
-            repo_id="sneha-4990/support-integrity-auditor",
+            repo_id="doingshit/Support_integrity_auditor",
             filename="summary.json",
             repo_type="model"
         )
